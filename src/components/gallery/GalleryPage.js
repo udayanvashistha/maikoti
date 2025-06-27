@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import img1 from "../../assets/images/home.jpg"; // Sample image, replace with actual images
+import Footer from "../Footer";
 
 const categories = ["All", "Nature", "People", "Culture", "Festivals"];
 
@@ -52,6 +53,7 @@ const GalleryPage = () => {
           </div>
         ))}
       </div>
+      <Footer />
     </div>
   );
 };

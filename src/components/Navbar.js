@@ -3,7 +3,7 @@ import React from "react";
 const Navbar = () => {
   return (
     <nav style={styles.navbar}>
-      <div style={styles.logo}>DSGN</div>
+      <div style={styles.logo}>MAIKOTI</div>
       <ul style={styles.navLinks}>
         <li style={styles.navItem}>Home</li>
         <li style={styles.navItem}>Class</li>
