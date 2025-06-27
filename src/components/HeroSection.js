@@ -1,50 +1,75 @@
 import React from "react";
-import img1 from "../assets/images/home.jpg";
+import { Link } from "react-router-dom";
+import img1 from "../assets/images/village/village1.jpg";
 import img2 from "../assets/images/home.jpg";
 import img3 from "../assets/images/home.jpg";
 import img4 from "../assets/images/home.jpg";
 import img5 from "../assets/images/home.jpg";
-import img6 from "../assets/images/home.jpg";
+import img6 from "../assets/images/village/village1.jpg";
 
 const HeroSection = () => {
   return (
-    <section style={styles.section}>
-      <div style={styles.container}>
-        {/* Left Content */}
-        <div style={styles.left}>
-          <h1 style={styles.heading}>
-            Rediscover{" "}
-            <span style={styles.highlight}>Culture & Creativity</span>
-            <br />
-            in the Heart of the Himalayas
-          </h1>
-          <p style={styles.desc}>
-            Journey to Maikoti — where nature’s beauty meets traditional wisdom.
-            Explore local art, stories, and people that inspire unforgettable
-            experiences.
-          </p>
-          <div style={styles.buttonRow}>
-            <button style={styles.primary}>Plan Your Visit</button>
-            <button style={styles.secondary}>Know the People</button>
+    <>
+      <style>
+        {`
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+  `}
+      </style>
+      <section style={styles.section}>
+        <div style={styles.container}>
+          {/* Left Content */}
+          <div style={styles.left}>
+            <h1 style={styles.heading}>
+              Rediscover{" "}
+              <span style={styles.highlight}>Culture & Creativity</span>
+              <br />
+              in the Heart of the Himalayas
+            </h1>
+            <p style={styles.desc}>
+              Journey to Maikoti — where nature’s beauty meets traditional
+              wisdom. Explore local art, stories, and people that inspire
+              unforgettable experiences.
+            </p>
+            <div style={styles.buttonRow}>
+              <Link
+                to="/plan"
+                style={{
+                  ...styles.primary,
+                  textDecoration: "none",
+                  display: "inline-block",
+                }}
+              >
+                Plan Your Visit
+              </Link>
+              <button style={styles.secondary}>Know the People</button>
+            </div>
+          </div>
+
+          {/* Right Circular Images */}
+          <div style={styles.right}>
+            {[img1, img2, img3, img4, img5, img6].map((img, index) => (
+              <div
+                key={index}
+                style={{
+                  ...styles.imageWrapper,
+                  animationDelay: `${index * 0.2}s`,
+                }}
+              >
+                <img
+                  src={img}
+                  alt={`Visual ${index + 1}`}
+                  style={styles.image}
+                />
+              </div>
+            ))}
           </div>
         </div>
-
-        {/* Right Circular Images */}
-        <div style={styles.right}>
-          {[img1, img2, img3, img4, img5, img6].map((img, index) => (
-            <div
-              key={index}
-              style={{
-                ...styles.imageWrapper,
-                animationDelay: `${index * 0.2}s`,
-              }}
-            >
-              <img src={img} alt={`Visual ${index + 1}`} style={styles.image} />
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
@@ -57,8 +82,9 @@ const floatKeyframes = `
 `;
 
 // Inject animation into the document
-const styleSheet = document.styleSheets[0];
-styleSheet.insertRule(floatKeyframes, styleSheet.cssRules.length);
+
+// const styleSheet = document.styleSheets[0];
+// styleSheet.insertRule(floatKeyframes, styleSheet.cssRules.length);
 
 const styles = {
   section: {
