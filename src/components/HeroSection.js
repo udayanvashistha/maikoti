@@ -45,7 +45,16 @@ const HeroSection = () => {
               >
                 Plan Your Visit
               </Link>
-              <button style={styles.secondary}>Know the People</button>
+              <Link
+                to="/gallery"
+                style={{
+                  ...styles.secondary,
+                  textDecoration: "none",
+                  display: "inline-block",
+                }}
+              >
+                Know the People
+              </Link>
             </div>
           </div>
 
