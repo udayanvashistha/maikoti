@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/maikoti/static/css/main.e6c13ad2.css",
-    "main.js": "/maikoti/static/js/main.278c8275.js",
+    "main.js": "/maikoti/static/js/main.ba49ac22.js",
     "static/js/453.90d32945.chunk.js": "/maikoti/static/js/453.90d32945.chunk.js",
     "static/media/home.jpg": "/maikoti/static/media/home.b1614efc5e4a5898fc70.jpg",
     "static/media/village1.jpg": "/maikoti/static/media/village1.03f480771558a953ee5c.jpg",
     "index.html": "/maikoti/index.html",
     "main.e6c13ad2.css.map": "/maikoti/static/css/main.e6c13ad2.css.map",
-    "main.278c8275.js.map": "/maikoti/static/js/main.278c8275.js.map",
+    "main.ba49ac22.js.map": "/maikoti/static/js/main.ba49ac22.js.map",
     "453.90d32945.chunk.js.map": "/maikoti/static/js/453.90d32945.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.278c8275.js"
+    "static/js/main.ba49ac22.js"
   ]
 }
