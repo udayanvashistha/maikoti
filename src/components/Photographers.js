@@ -4,19 +4,19 @@ import sample from "../assets/images/home.jpg";
 
 const photographers = [
   {
-    name: "Aarav Singh",
+    name: "Vashistha Photography",
     role: "Nature Specialist",
     avatar: avatar,
     samples: [sample, sample, sample],
   },
   {
-    name: "Isha Patel",
+    name: "Vashistha Photography",
     role: "Street Explorer",
     avatar: avatar,
     samples: [sample, sample, sample],
   },
   {
-    name: "Kabir Mehra",
+    name: "Vashistha Photography",
     role: "Festival Moments",
     avatar: avatar,
     samples: [sample, sample, sample],

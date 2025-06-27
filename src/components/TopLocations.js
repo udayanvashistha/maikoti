@@ -6,22 +6,22 @@ import img4 from "../assets/images/home.jpg";
 
 const locations = [
   {
-    title: "Old Fort",
+    title: "Haryali Devi",
     desc: "A historic site in the heart of the city.",
     img: img1,
   },
   {
-    title: "Sunset Lake",
+    title: "Narshingh Temple",
     desc: "Perfect place to enjoy a peaceful sunset.",
     img: img2,
   },
   {
-    title: "Downtown Market",
+    title: "Bugani Market",
     desc: "Bustling with culture and street food.",
     img: img3,
   },
   {
-    title: "Riverfront Park",
+    title: "Main Maikoti",
     desc: "A modern escape with natural beauty.",
     img: img4,
   },
