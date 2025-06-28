@@ -1,17 +1,28 @@
 {
   "files": {
     "main.css": "/maikoti/static/css/main.e6c13ad2.css",
-    "main.js": "/maikoti/static/js/main.6a5661af.js",
+    "main.js": "/maikoti/static/js/main.22faae37.js",
     "static/js/453.90d32945.chunk.js": "/maikoti/static/js/453.90d32945.chunk.js",
+    "static/media/village3.jpg": "/maikoti/static/media/village3.081384db2a7e3bdc4207.jpg",
+    "static/media/village2.jpg": "/maikoti/static/media/village2.d36f76e496d340844d72.jpg",
+    "static/media/village4.jpg": "/maikoti/static/media/village4.c5581d12493e7a03ad4f.jpg",
+    "static/media/village5.jpg": "/maikoti/static/media/village5.325842a6a1ed33267d71.jpg",
     "static/media/home.jpg": "/maikoti/static/media/home.b1614efc5e4a5898fc70.jpg",
+    "static/media/haryalidhar2.png": "/maikoti/static/media/haryalidhar2.b4066c7ab5d7f0bca161.png",
+    "static/media/waterpool.png": "/maikoti/static/media/waterpool.d8a6116d3a060ac8e09f.png",
+    "static/media/village8.png": "/maikoti/static/media/village8.0c960cb756f574e6e2a6.png",
+    "static/media/waterpool2.png": "/maikoti/static/media/waterpool2.b01c0bfe8a7855bc8c94.png",
+    "static/media/temple.png": "/maikoti/static/media/temple.eac0aa874c07cdb7ced8.png",
+    "static/media/villageroad.png": "/maikoti/static/media/villageroad.dea70e1c4664cf78b317.png",
+    "static/media/haryalidevi.jpg_large": "/maikoti/static/media/haryalidevi.b48ec57bd661d09b9d72.jpg_large",
     "static/media/village1.jpg": "/maikoti/static/media/village1.03f480771558a953ee5c.jpg",
     "index.html": "/maikoti/index.html",
     "main.e6c13ad2.css.map": "/maikoti/static/css/main.e6c13ad2.css.map",
-    "main.6a5661af.js.map": "/maikoti/static/js/main.6a5661af.js.map",
+    "main.22faae37.js.map": "/maikoti/static/js/main.22faae37.js.map",
     "453.90d32945.chunk.js.map": "/maikoti/static/js/453.90d32945.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.6a5661af.js"
+    "static/js/main.22faae37.js"
   ]
 }
