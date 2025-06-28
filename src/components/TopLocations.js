@@ -31,7 +31,7 @@ const TopLocations = () => {
   return (
     <section style={styles.section}>
       <div style={styles.wrapper}>
-        <h2 style={styles.heading}>Top Locations in Our City</h2>
+        <h2 style={styles.heading}>Top Locations in Our Village</h2>
         <div style={styles.grid}>
           {locations.map((loc, idx) => (
             <div key={idx} style={styles.card}>

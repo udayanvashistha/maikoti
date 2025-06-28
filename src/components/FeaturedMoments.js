@@ -28,7 +28,7 @@ const FeaturedMoments = () => {
 
 const styles = {
   section: {
-    backgroundColor: "#ffffff",
+    backgroundColor: "#f9f9fb",
     padding: "60px 20px",
   },
   heading: {
@@ -36,7 +36,7 @@ const styles = {
     fontSize: "36px",
     fontWeight: "bold",
     marginBottom: "40px",
-    color: "#222",
+    color: "#1a1a1a",
   },
   gallery: {
     columnCount: 3,
@@ -47,17 +47,30 @@ const styles = {
   card: {
     breakInside: "avoid",
     marginBottom: "20px",
-    borderRadius: "12px",
+    borderRadius: "16px",
     overflow: "hidden",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-    transition: "transform 0.3s ease",
+    boxShadow: "0 6px 18px rgba(0, 0, 0, 0.06)",
+    border: "1px solid #e6e6e6",
+    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+    cursor: "pointer",
   },
   image: {
     width: "100%",
     height: "100%",
     objectFit: "cover",
     display: "block",
+    transition: "transform 0.3s ease",
   },
 };
+
+// Add subtle hover effect globally
+const hoverStyle = `
+  .galleryCard:hover img {
+    transform: scale(1.04);
+  }
+`;
+const styleTag = document.createElement("style");
+styleTag.textContent = hoverStyle;
+document.head.appendChild(styleTag);
 
 export default FeaturedMoments;

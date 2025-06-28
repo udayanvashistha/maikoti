@@ -31,24 +31,28 @@ const PlanYourVisit = () => {
           <div style={styles.card}>
             <h3 style={styles.cardTitle}>🚗 How to Reach</h3>
             <p>
-              18 km north of Rudraprayag on NH-107. Accessible by taxi or shared
-              jeep from Augustmuni.
+              If you have your own vehicle, first reach Tilwara via the
+              Kedarnath highway, then take the Tilwara–Maikoti road. For public
+              transport, take a taxi from Rudraprayag taxi stand.
             </p>
           </div>
 
           <div style={styles.card}>
-            <h3 style={styles.cardTitle}>🏡 Stay Options</h3>
+            <h3 style={styles.cardTitle}>🏡 Nearby Stay Options</h3>
             <p>
-              Local homestays offer warm hospitality and home-cooked meals in
-              traditional stone-wood houses.
+              While Maikoti village doesn’t have homestays yet, cozy
+              accommodations are available just 3 km away. Homestay facilities
+              may emerge in the village as tourism grows.
             </p>
           </div>
 
           <div style={styles.card}>
-            <h3 style={styles.cardTitle}>📅 Best Time</h3>
+            <h3 style={styles.cardTitle}>📅 Best Time to Visit</h3>
             <p>
-              March–June for greenery, Sept–Nov for clear skies and festivals
-              like Harela & Kandali.
+              June is ideal for witnessing the Narsingh Mandir festivities and
+              community Yagyas. August also features local rituals. The village
+              remains cool year-round, but avoid late June to mid-August due to
+              rains.
             </p>
           </div>
         </div>

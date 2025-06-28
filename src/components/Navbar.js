@@ -6,7 +6,7 @@ const Navbar = () => {
       <div style={styles.logo}>MAIKOTI</div>
       <ul style={styles.navLinks}>
         <li style={styles.navItem}>Home</li>
-        <li style={styles.navItem}>Class</li>
+        {/* <li style={styles.navItem}>Class</li> */}
         <li style={styles.navItem}>Creation</li>
         <li style={styles.navItem}>FAQ</li>
       </ul>
@@ -35,6 +35,7 @@ const styles = {
     fontWeight: "500",
     margin: 0,
     padding: 0,
+    marginleft: "20px",
   },
   navItem: {
     cursor: "pointer",

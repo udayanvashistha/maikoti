@@ -13,6 +13,7 @@ import SeasonsEvents from "../components/SeasonsEvents";
 import Footer from "../components/Footer";
 import VillageMaikoti from "../components/VillageMaikoti";
 import HowToReach from "../components/HowToReach";
+import VillageDocumentary from "../components/villgeDocumentary";
 
 const Home = () => {
   return (
@@ -32,7 +33,7 @@ const Home = () => {
       <ImageSlider images={[img1, img2, img3]} interval={3000} />
       <TopLocations />
       <FeaturedMoments />
-      <Photographers />
+      <VillageDocumentary />
       <SeasonsEvents />
       <VillageMaikoti />
       <HowToReach />
