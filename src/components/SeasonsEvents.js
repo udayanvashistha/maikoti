@@ -1,16 +1,18 @@
 import React from "react";
 import img from "../assets/images/home.jpg";
+import monsoon from "../assets/images/village/village3.jpg";
+import winter from "../assets/images/village/village5.jpg";
 
 const events = [
   {
-    title: "Spring Blossom",
-    caption: "Flowers bloom across the city parks.",
-    image: img,
+    title: "Winter Wonderland",
+    caption: "A gentle snowfall blankets the village",
+    image: winter,
   },
   {
     title: "Monsoon Views",
-    caption: "Rain-washed streets and riverbanks.",
-    image: img,
+    caption: "Rain-washed Road and Mountains.",
+    image: monsoon,
   },
   {
     title: "Diwali Nights",

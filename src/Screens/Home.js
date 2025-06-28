@@ -2,9 +2,9 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
 
-import img1 from "../assets//images/home.jpg";
-import img2 from "../assets//images/home.jpg";
-import img3 from "../assets//images/home.jpg";
+import img1 from "../assets//images/village/village1.jpg";
+import img2 from "../assets//images/village/village2.jpg";
+import img3 from "../assets//images/village/village3.jpg";
 import ImageSlider from "../components/ImagesSlider";
 import TopLocations from "../components/TopLocations";
 import FeaturedMoments from "../components/FeaturedMoments";

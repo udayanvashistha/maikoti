@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import img1 from "../../assets/images/home.jpg"; // Sample image, replace with actual images
+import img1 from "../../assets/images/village/village1.jpg";
+import img2 from "../../assets/images/village/village2.jpg";
+import img3 from "../../assets/images/village/village3.jpg";
 import Footer from "../Footer";
 
 const categories = ["All", "Nature", "People", "Culture", "Festivals"];
@@ -8,17 +10,17 @@ const GalleryPage = () => {
   const [selectedFilter, setSelectedFilter] = useState("All");
 
   const images = [
-    { src: img1, category: "Nature" },
-    { src: img1, category: "People" },
+    { src: img2, category: "Nature" },
+    { src: img3, category: "People" },
     { src: img1, category: "Culture" },
     { src: img1, category: "Festivals" },
-    { src: img1, category: "Nature" },
+    { src: img2, category: "Nature" },
     { src: img1, category: "People" },
-    { src: img1, category: "Nature" },
-    { src: img1, category: "People" },
+    { src: img2, category: "Nature" },
+    { src: img3, category: "People" },
     { src: img1, category: "Culture" },
-    { src: img1, category: "Festivals" },
-    { src: img1, category: "Nature" },
+    { src: img3, category: "Festivals" },
+    { src: img2, category: "Nature" },
     { src: img1, category: "People" },
   ];
 

@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import img1 from "../assets/images/village/village1.jpg";
-import img2 from "../assets/images/home.jpg";
-import img3 from "../assets/images/home.jpg";
-import img4 from "../assets/images/home.jpg";
-import img5 from "../assets/images/home.jpg";
+import img1 from "../assets/images/village/haryalidevi.jpg_large";
+import img2 from "../assets/images/village/haryalidhar2.png";
+import img3 from "../assets/images/village/temple.png";
+import img4 from "../assets/images/village/village4.jpg";
+import img5 from "../assets/images/village/waterpool.png";
 import img6 from "../assets/images/village/village1.jpg";
 
 const HeroSection = () => {

@@ -1,10 +1,10 @@
 import React from "react";
-import img1 from "../assets/images/home.jpg";
-import img2 from "../assets/images/home.jpg";
-import img3 from "../assets/images/home.jpg";
-import img4 from "../assets/images/home.jpg";
-import img5 from "../assets/images/home.jpg";
-import img6 from "../assets/images/home.jpg";
+import img1 from "../assets/images/village/village1.jpg";
+import img2 from "../assets/images/village/village8.png";
+import img3 from "../assets/images/village/village3.jpg";
+import img4 from "../assets/images/village/waterpool2.png";
+import img5 from "../assets/images/village/village5.jpg";
+import img6 from "../assets/images/village/villageroad.png";
 
 const images = [img1, img2, img3, img4, img5, img6];
 

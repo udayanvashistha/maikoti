@@ -1,5 +1,5 @@
 import React from "react";
-import img1 from "../assets/images/home.jpg";
+import img1 from "../assets/images/village/haryalidevi.jpg_large";
 import img2 from "../assets/images/home.jpg";
 import img3 from "../assets/images/home.jpg";
 import img4 from "../assets/images/home.jpg";
