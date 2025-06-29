@@ -1,7 +1,9 @@
 import React from "react";
 import img from "../assets/images/home.jpg";
-import monsoon from "../assets/images/village/village3.jpg";
+import monsoon from "../assets/images/session/rainy.png";
 import winter from "../assets/images/village/village5.jpg";
+import holi from "../assets/images/session/holi.avif";
+import diwali from "../assets/images/session/diwali.jpg";
 
 const events = [
   {
@@ -17,12 +19,12 @@ const events = [
   {
     title: "Diwali Nights",
     caption: "Lights and diyas decorate every corner.",
-    image: img,
+    image: diwali,
   },
   {
     title: "Holi Vibes",
     caption: "Colors, fun and street celebrations.",
-    image: img,
+    image: holi,
   },
 ];
 

@@ -13,6 +13,10 @@ const videos = [
     title: "Life in Maikoti Village",
     url: "https://www.youtube.com/embed/2q9y2g214nc",
   },
+  {
+    title: "Maikoti,Listed in top Places of rudraprayag",
+    url: "https://www.youtube.com/embed/FMLVMUIH2YA",
+  },
 ];
 
 const VillageDocumentary = () => {
@@ -48,31 +52,31 @@ const VillageDocumentary = () => {
 const styles = {
   section: {
     padding: "60px 20px",
-    backgroundColor: "#f7f9fc",
+    background: "linear-gradient(135deg, #2e2f46, #c94b31)",
     textAlign: "center",
   },
   heading: {
     fontSize: "34px",
     fontWeight: "700",
-    color: "#1e1e1e",
+    color: "#fff",
     marginBottom: "10px",
   },
   subtext: {
     fontSize: "16px",
-    color: "#666",
+    color: "#e0e0e0",
     marginBottom: "40px",
   },
   grid: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
     gap: "24px",
     maxWidth: "1100px",
     margin: "0 auto",
   },
   card: {
-    background: "#fff",
+    background: "#ffffff",
     borderRadius: "16px",
-    boxShadow: "0 8px 24px rgba(0, 0, 0, 0.06)",
+    boxShadow: "0 8px 24px rgba(0, 0, 0, 0.1)",
     overflow: "hidden",
     transition: "transform 0.3s ease",
   },
@@ -88,7 +92,6 @@ const styles = {
     width: "100%",
     height: "100%",
     border: "none",
-    borderRadius: "0px",
   },
   caption: {
     padding: "15px 20px",
@@ -96,7 +99,7 @@ const styles = {
   title: {
     fontSize: "16px",
     fontWeight: "600",
-    color: "#333",
+    color: "#222",
     margin: 0,
   },
 };

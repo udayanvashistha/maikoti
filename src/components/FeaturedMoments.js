@@ -16,6 +16,7 @@ const FeaturedMoments = () => {
         {images.map((src, idx) => (
           <div
             key={idx}
+            className="galleryCard"
             style={{ ...styles.card, height: idx % 2 === 0 ? 250 : 350 }}
           >
             <img src={src} alt={`Moment ${idx + 1}`} style={styles.image} />
@@ -28,7 +29,7 @@ const FeaturedMoments = () => {
 
 const styles = {
   section: {
-    backgroundColor: "#f9f9fb",
+    background: "linear-gradient(to right, #fef0e3, #fdf7ff)", // gradient bg
     padding: "60px 20px",
   },
   heading: {
@@ -49,8 +50,8 @@ const styles = {
     marginBottom: "20px",
     borderRadius: "16px",
     overflow: "hidden",
-    boxShadow: "0 6px 18px rgba(0, 0, 0, 0.06)",
-    border: "1px solid #e6e6e6",
+    boxShadow: "0 12px 28px rgba(0, 0, 0, 0.08)",
+    border: "1px solid #f0e6ff",
     transition: "transform 0.3s ease, box-shadow 0.3s ease",
     cursor: "pointer",
   },
@@ -63,10 +64,10 @@ const styles = {
   },
 };
 
-// Add subtle hover effect globally
+// Add hover effect globally
 const hoverStyle = `
   .galleryCard:hover img {
-    transform: scale(1.04);
+    transform: scale(1.05);
   }
 `;
 const styleTag = document.createElement("style");

@@ -2,27 +2,27 @@ import React from "react";
 import img1 from "../assets/images/village/haryalidevi.jpg_large";
 import img2 from "../assets/images/home.jpg";
 import img3 from "../assets/images/home.jpg";
-import img4 from "../assets/images/home.jpg";
+import img4 from "../assets/images/village/temple.png";
 
 const locations = [
   {
     title: "Haryali Devi",
-    desc: "A historic site in the heart of the city.",
+    desc: "A historic temple of Haryali Devi, a goddess of nature.",
     img: img1,
   },
   {
     title: "Narshingh Temple",
-    desc: "Perfect place to enjoy a peaceful sunset.",
+    desc: "A temple of Narshingh, a form of Lord Vishnu.",
     img: img2,
   },
   {
     title: "Bugani Market",
-    desc: "Bustling with culture and street food.",
+    desc: "Local market for fresh produce and daily needs.",
     img: img3,
   },
   {
-    title: "Main Maikoti",
-    desc: "A modern escape with natural beauty.",
+    title: "Padmavati Temple",
+    desc: "A serene temple dedicated to Goddess Padmavati.",
     img: img4,
   },
 ];
@@ -31,7 +31,7 @@ const TopLocations = () => {
   return (
     <section style={styles.section}>
       <div style={styles.wrapper}>
-        <h2 style={styles.heading}>Top Locations in Our Village</h2>
+        <h2 style={styles.heading}>Top Locations in Maikoti Village</h2>
         <div style={styles.grid}>
           {locations.map((loc, idx) => (
             <div key={idx} style={styles.card}>

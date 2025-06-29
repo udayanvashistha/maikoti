@@ -20,17 +20,30 @@ const Home = () => {
     <div>
       <Navbar />
       <HeroSection />
-      <h2
+      <section
         style={{
-          textAlign: "center",
-          marginTop: "40px",
-          fontSize: "28px",
-          color: "#333",
+          background: "linear-gradient(135deg, #0f2027, #203a43, #2c5364)", // cool blue modern gradient
+          padding: "60px 20px",
+          borderRadius: "0 0 30px 30px", // smooth bottom curve
         }}
       >
-        Explore Beautiful Moments from Our City
-      </h2>
-      <ImageSlider images={[img1, img2, img3]} interval={3000} />
+        <h2
+          style={{
+            textAlign: "center",
+            fontSize: "36px",
+            fontWeight: "700",
+            color: "#ffffff",
+            marginBottom: "40px",
+            textShadow: "0 2px 6px rgba(0,0,0,0.3)",
+            fontFamily: "'Segoe UI', sans-serif",
+          }}
+        >
+          Explore Beautiful Moments from Maikoti Village
+        </h2>
+
+        <ImageSlider images={[img1, img2, img3]} interval={3000} />
+      </section>
+
       <TopLocations />
       <FeaturedMoments />
       <VillageDocumentary />

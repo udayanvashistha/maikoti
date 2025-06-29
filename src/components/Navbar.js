@@ -7,8 +7,8 @@ const Navbar = () => {
       <ul style={styles.navLinks}>
         <li style={styles.navItem}>Home</li>
         {/* <li style={styles.navItem}>Class</li> */}
-        <li style={styles.navItem}>Creation</li>
-        <li style={styles.navItem}>FAQ</li>
+        <li style={styles.navItem}>Gallery</li>
+        <li style={styles.navItem}>Contact</li>
       </ul>
     </nav>
   );

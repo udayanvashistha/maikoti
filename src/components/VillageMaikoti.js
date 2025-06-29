@@ -1,5 +1,5 @@
 import React from "react";
-import villageImg from "../assets/images/home.jpg"; // replace with real image
+import villageImg from "../assets/images/home.jpg"; // Use the actual image path
 
 const VillageMaikoti = () => (
   <section style={styles.section}>
@@ -9,9 +9,12 @@ const VillageMaikoti = () => (
         <span style={styles.subheading}>Rudraprayag, Uttarakhand</span>
       </h2>
       <div style={styles.content}>
+        {/* Image */}
         <div style={styles.imageWrapper}>
           <img src={villageImg} alt="Maikoti Village" style={styles.image} />
         </div>
+
+        {/* Info Card */}
         <div style={styles.info}>
           <p>
             <strong>📌 Location:</strong> 18 km north of Rudraprayag town along
@@ -58,55 +61,59 @@ const VillageMaikoti = () => (
 
 const styles = {
   section: {
-    background: "#eef4f7",
+    background: "linear-gradient(to bottom, #f5f9ff, #e8f0fc)",
     padding: "60px 0",
-    width: "100%",
     display: "flex",
     justifyContent: "center",
+    width: "100%",
   },
   wrapper: {
     width: "90%",
-    maxWidth: "1100px",
-    margin: "0 auto",
+    maxWidth: "1200px",
   },
   heading: {
-    fontSize: "32px",
+    fontSize: "34px",
     fontWeight: "700",
     textAlign: "center",
-    color: "#1a1f36",
+    color: "#1a1a1a",
     marginBottom: "10px",
   },
   subheading: {
     fontSize: "18px",
     fontWeight: "400",
-    color: "#444",
+    color: "#555",
   },
   content: {
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "center",
     gap: "40px",
     marginTop: "40px",
+    alignItems: "stretch",
   },
   imageWrapper: {
-    flex: "1 1 300px",
-    maxWidth: "400px",
+    flex: "1 1 450px",
+    maxWidth: "500px",
   },
   image: {
     width: "100%",
-    borderRadius: "14px",
-    boxShadow: "0 10px 25px rgba(0, 0, 0, 0.1)",
+    height: "100%",
+    maxHeight: "520px",
     objectFit: "cover",
+    borderRadius: "16px",
+    boxShadow: "0 12px 28px rgba(0, 0, 0, 0.15)",
   },
   info: {
-    flex: "1 1 500px",
+    flex: "1 1 450px",
+    background: "#ffffff",
+    padding: "25px",
+    borderRadius: "16px",
+    boxShadow: "0 12px 28px rgba(0, 0, 0, 0.1)",
     fontSize: "16px",
-    lineHeight: "1.75",
     color: "#333",
-    background: "#ffffffb3",
-    padding: "20px",
-    borderRadius: "10px",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.06)",
+    lineHeight: "1.75",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
   },
 };
 
