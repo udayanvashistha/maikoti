@@ -24,7 +24,7 @@ const Footer = () => {
 
         <div style={styles.contact}>
           <h4 style={styles.heading}>Contact Us</h4>
-          <p style={styles.text}>📧 contact@maikotiview.com</p>
+          <p style={styles.text}>📧 support@maikoti.in</p>
           <p style={styles.text}>📍 Maikoti, Rudraprayag, Uttarakhand</p>
         </div>
       </div>

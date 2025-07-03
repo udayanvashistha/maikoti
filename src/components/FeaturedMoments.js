@@ -14,11 +14,7 @@ const FeaturedMoments = () => {
       <h2 style={styles.heading}>Featured Moments</h2>
       <div style={styles.gallery}>
         {images.map((src, idx) => (
-          <div
-            key={idx}
-            className="galleryCard"
-            style={{ ...styles.card, height: idx % 2 === 0 ? 250 : 350 }}
-          >
+          <div key={idx} className="galleryCard" style={styles.card}>
             <img src={src} alt={`Moment ${idx + 1}`} style={styles.image} />
           </div>
         ))}
@@ -29,7 +25,7 @@ const FeaturedMoments = () => {
 
 const styles = {
   section: {
-    background: "linear-gradient(to right, #fef0e3, #fdf7ff)", // gradient bg
+    background: "linear-gradient(to right, #fef0e3, #fdf7ff)", // Soft gradient
     padding: "60px 20px",
   },
   heading: {
@@ -40,14 +36,13 @@ const styles = {
     color: "#1a1a1a",
   },
   gallery: {
-    columnCount: 3,
-    columnGap: "20px",
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", // responsive
+    gap: "20px",
     maxWidth: "1200px",
     margin: "0 auto",
   },
   card: {
-    breakInside: "avoid",
-    marginBottom: "20px",
     borderRadius: "16px",
     overflow: "hidden",
     boxShadow: "0 12px 28px rgba(0, 0, 0, 0.08)",
@@ -57,7 +52,7 @@ const styles = {
   },
   image: {
     width: "100%",
-    height: "100%",
+    height: "200px",
     objectFit: "cover",
     display: "block",
     transition: "transform 0.3s ease",
@@ -66,6 +61,11 @@ const styles = {
 
 // Add hover effect globally
 const hoverStyle = `
+  .galleryCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.15);
+  }
+
   .galleryCard:hover img {
     transform: scale(1.05);
   }
