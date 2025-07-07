@@ -14,6 +14,7 @@ import Footer from "../components/Footer";
 import VillageMaikoti from "../components/VillageMaikoti";
 import HowToReach from "../components/HowToReach";
 import VillageDocumentary from "../components/villgeDocumentary";
+import NewsSection from "../components/NewsSection";
 
 const Home = () => {
   return (
@@ -48,6 +49,7 @@ const Home = () => {
       <FeaturedMoments />
       <VillageDocumentary />
       <SeasonsEvents />
+      <NewsSection />
       <VillageMaikoti />
       <HowToReach />
       <iframe

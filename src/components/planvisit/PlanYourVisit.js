@@ -13,6 +13,9 @@ const PlanYourVisit = () => {
         </button>
 
         <h2 style={styles.heading}>Plan Your Visit to Maikoti</h2>
+        <h3 style={styles.headingemail}>
+          Reach here for Enquery : support@maikoti.in{" "}
+        </h3>
         <p style={styles.subtext}>
           Experience the culture, connect with nature, and enjoy the serenity of
           Maikoti. Whether you're an adventurer, a spiritual seeker, or simply
@@ -24,7 +27,7 @@ const PlanYourVisit = () => {
             <h3 style={styles.cardTitle}>🛕 Nearby Attractions</h3>
             <p>
               Visit Kartik Swami, Haryali Devi Temple, and the picturesque
-              Mandakini River trails.
+              nature trails.
             </p>
           </div>
 
@@ -87,6 +90,13 @@ const styles = {
     fontWeight: "bold",
     marginBottom: "20px",
   },
+  headingemail: {
+    fontSize: "18px",
+    fontWeight: "bold",
+    fontStyle: "italic",
+    marginBottom: "20px",
+  },
+
   subtext: {
     fontSize: "16px",
     maxWidth: "800px",
