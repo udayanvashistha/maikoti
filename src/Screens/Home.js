@@ -18,53 +18,182 @@ import NewsSection from "../components/NewsSection";
 
 const Home = () => {
   return (
-    <div>
+    <div style={styles.container}>
       <Navbar />
+      
+      {/* Hero Section */}
       <HeroSection />
-      <section
-        style={{
-          background: "linear-gradient(135deg, #0f2027, #203a43, #2c5364)", // cool blue modern gradient
-          padding: "60px 20px",
-          borderRadius: "0 0 30px 30px", // smooth bottom curve
-        }}
-      >
-        <h2
-          style={{
-            textAlign: "center",
-            fontSize: "36px",
-            fontWeight: "700",
-            color: "#ffffff",
-            marginBottom: "40px",
-            textShadow: "0 2px 6px rgba(0,0,0,0.3)",
-            fontFamily: "'Segoe UI', sans-serif",
-          }}
-        >
-          Explore Beautiful Moments from Maikoti Village
-        </h2>
-
-        <ImageSlider images={[img1, img2, img3]} interval={3000} />
+      
+      {/* Village Showcase Section */}
+      <section style={styles.showcaseSection}>
+        <div style={styles.sectionContainer}>
+          <div style={styles.sectionHeader}>
+            <span style={styles.sectionBadge}>
+              🌄 Mountain Heritage
+            </span>
+            <h2 style={styles.sectionTitle}>
+              Discover the Beauty of <span style={styles.titleHighlight}>Maikoti Village</span>
+            </h2>
+            <p style={styles.sectionDescription}>
+              Experience the timeless charm of our Himalayan village through these breathtaking moments
+            </p>
+          </div>
+          
+          <div style={styles.sliderContainer}>
+            <ImageSlider images={[img1, img2, img3]} interval={3000} />
+          </div>
+        </div>
       </section>
 
+      {/* Top Locations */}
       <TopLocations />
+      
+      {/* Featured Moments */}
       <FeaturedMoments />
+      
+      {/* Village Documentary */}
       <VillageDocumentary />
+      
+      {/* Seasons & Events */}
       <SeasonsEvents />
+      
+      {/* News Section */}
       <NewsSection />
+      
+      {/* Village Information */}
       <VillageMaikoti />
+      
+      {/* How to Reach */}
       <HowToReach />
-      <iframe
-        title="Maikoti Map"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.176423310696!2d78.9925535150776!3d30.288561981777142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39090f457982b9ed%3A0xe0b8e96f26c2aa9!2sMaikoti!5e0!3m2!1sen!2sin!4v1680000000000"
-        width="100%"
-        height="350"
-        style={{ border: 0, borderRadius: "12px", marginTop: "40px" }}
-        allowFullScreen=""
-        loading="lazy"
-      />
+      
+      {/* Interactive Map Section */}
+      <section style={styles.mapSection}>
+        <div style={styles.sectionContainer}>
+          <div style={styles.mapHeader}>
+            <h2 style={styles.mapTitle}>Find Your Way to Maikoti</h2>
+            <p style={styles.mapDescription}>
+              Located in the heart of the Himalayas, Maikoti is easily accessible and waiting to welcome you
+            </p>
+          </div>
+          
+          <div style={styles.mapContainer}>
+            <iframe
+              title="Maikoti Village Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.176423310696!2d78.9925535150776!3d30.288561981777142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39090f457982b9ed%3A0xe0b8e96f26c2aa9!2sMaikoti!5e0!3m2!1sen!2sin!4v1680000000000"
+              width="100%"
+              height="400"
+              style={styles.map}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </div>
   );
+};
+
+const styles = {
+  container: {
+    minHeight: "100vh",
+    background: "var(--gray-50)",
+  },
+  showcaseSection: {
+    padding: "var(--space-24) 0",
+    background: "linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%)",
+    position: "relative",
+    overflow: "hidden",
+  },
+  sectionContainer: {
+    maxWidth: "1200px",
+    margin: "0 auto",
+    padding: "0 var(--space-4)",
+  },
+  sectionHeader: {
+    textAlign: "center",
+    marginBottom: "var(--space-16)",
+    maxWidth: "800px",
+    margin: "0 auto var(--space-16)",
+  },
+  sectionBadge: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "var(--space-2)",
+    background: "var(--gradient-primary)",
+    color: "white",
+    padding: "var(--space-2) var(--space-4)",
+    borderRadius: "var(--radius-full)",
+    fontSize: "var(--text-sm)",
+    fontWeight: "600",
+    marginBottom: "var(--space-4)",
+    boxShadow: "var(--shadow-md)",
+  },
+  sectionTitle: {
+    fontSize: "clamp(2rem, 4vw, 3rem)",
+    fontWeight: "800",
+    color: "var(--gray-900)",
+    marginBottom: "var(--space-4)",
+    fontFamily: "var(--font-family-serif)",
+    lineHeight: "1.2",
+  },
+  titleHighlight: {
+    background: "var(--gradient-primary)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    backgroundClip: "text",
+  },
+  sectionDescription: {
+    fontSize: "var(--text-lg)",
+    color: "var(--gray-600)",
+    lineHeight: "1.6",
+    maxWidth: "600px",
+    margin: "0 auto",
+  },
+  sliderContainer: {
+    borderRadius: "var(--radius-2xl)",
+    overflow: "hidden",
+    boxShadow: "var(--shadow-2xl)",
+    background: "white",
+    padding: "var(--space-2)",
+  },
+  mapSection: {
+    padding: "var(--space-24) 0",
+    background: "var(--gray-100)",
+  },
+  mapHeader: {
+    textAlign: "center",
+    marginBottom: "var(--space-12)",
+  },
+  mapTitle: {
+    fontSize: "var(--text-4xl)",
+    fontWeight: "800",
+    color: "var(--gray-900)",
+    marginBottom: "var(--space-4)",
+    fontFamily: "var(--font-family-serif)",
+  },
+  mapDescription: {
+    fontSize: "var(--text-lg)",
+    color: "var(--gray-600)",
+    maxWidth: "500px",
+    margin: "0 auto",
+    lineHeight: "1.6",
+  },
+  mapContainer: {
+    borderRadius: "var(--radius-2xl)",
+    overflow: "hidden",
+    boxShadow: "var(--shadow-xl)",
+    background: "white",
+    padding: "var(--space-3)",
+  },
+  map: {
+    border: 0,
+    borderRadius: "var(--radius-xl)",
+    width: "100%",
+    display: "block",
+  },
 };
 
 export default Home;
