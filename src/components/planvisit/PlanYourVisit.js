@@ -96,7 +96,6 @@ const styles = {
     fontStyle: "italic",
     marginBottom: "20px",
   },
-
   subtext: {
     fontSize: "16px",
     maxWidth: "800px",
