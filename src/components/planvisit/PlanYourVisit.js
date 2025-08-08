@@ -120,6 +120,9 @@ const styles = {
     fontWeight: "600",
     marginBottom: "10px",
   },
+  test: {
+    fontSize: "18px",
+  },
 };
 
 export default PlanYourVisit;
