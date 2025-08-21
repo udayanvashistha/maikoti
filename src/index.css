@@ -111,11 +111,11 @@ html {
 }
 
 body {
-  font-family: var(--font-family-sans);
-  font-size: var(--text-base);
+  font-family: var(--font-family-sans, 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif);
+  font-size: var(--text-base, 1rem);
   line-height: 1.6;
-  color: var(--gray-900);
-  background-color: var(--gray-50);
+  color: var(--gray-900, #18181b);
+  background-color: var(--gray-50, #fafafa);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -348,4 +348,45 @@ code {
   padding: var(--space-1) var(--space-2);
   border-radius: var(--radius-sm);
   font-size: 0.875em;
+}
+
+/* Ensure text visibility - fallback for any transparency issues */
+h1, h2, h3, h4, h5, h6, p, span, div {
+  /* Ensure minimum opacity for text elements */
+  min-height: auto;
+}
+
+/* Fix for gradient text that might become invisible */
+.gradient-text-fallback {
+  background: linear-gradient(135deg, #1e40af, #3730a3) !important; /* Dark blue gradient */
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  /* Fallback color */
+  color: #1e40af !important;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Ensure hero text is always visible */
+.hero-text-visible {
+  opacity: 1 !important;
+  visibility: visible !important;
+  color: #1a1a1a !important; /* Changed to dark color */
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9) !important; /* White shadow for dark text */
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+/* Remove background from text elements - keep only text shadows */
+.hero-text-visible h1,
+.hero-text-visible p {
+  background: none !important;
+  padding: 0 !important;
+  margin-bottom: 1rem !important;
+}
+
+/* Force dark text color on all hero elements */
+.hero-text-visible * {
+  color: #1a1a1a !important; /* Dark text */
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9) !important; /* White shadow */
 }

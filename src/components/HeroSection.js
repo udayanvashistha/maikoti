@@ -44,22 +44,28 @@ const HeroSection = () => {
       <div style={styles.container}>
         <div style={styles.content}>
           {/* Main Content */}
-          <div style={{
-            ...styles.textContent,
-            ...(isVisible ? styles.fadeInUp : {})
-          }}>
+          <div
+            className="hero-text-visible"
+            style={{
+              ...styles.textContent,
+              // Always apply fadeInUp styles to ensure visibility
+              ...styles.fadeInUp,
+              // Add animation class if visible
+              ...(isVisible ? { animation: "fadeInUp 1s ease-out" } : {}),
+              // Remove background - just keep text shadows for visibility
+            }}>
             <span style={styles.badge}>
               🌟 Discover Hidden Gems
             </span>
-            
-            <h1 style={styles.heading}>
+
+            <h1 className="hero-text-visible" style={styles.heading}>
               Journey to the Heart of{" "}
-              <span style={styles.highlight}>Maikoti Village</span>
+              <span className="gradient-text-fallback" style={styles.highlight}>Maikoti Village</span>
             </h1>
             
-            <p style={styles.description}>
-              Nestled in the majestic Himalayas, Maikoti offers an authentic glimpse into 
-              traditional mountain life, ancient temples, and breathtaking natural beauty 
+            <p className="hero-text-visible" style={styles.description}>
+              Nestled in the majestic Himalayas, Maikoti offers an authentic glimpse into
+              traditional mountain life, ancient temples, and breathtaking natural beauty
               that will leave you spellbound.
             </p>
 
@@ -191,7 +197,7 @@ const styles = {
     left: 0,
     right: 0,
     bottom: 0,
-    background: "linear-gradient(135deg, rgba(6, 78, 59, 0.9) 0%, rgba(5, 150, 105, 0.8) 50%, rgba(16, 185, 129, 0.9) 100%)",
+    background: "linear-gradient(135deg, rgba(6, 78, 59, 0.85) 0%, rgba(5, 150, 105, 0.75) 50%, rgba(16, 185, 129, 0.85) 100%)",
     zIndex: 1,
   },
   backgroundImage: {
@@ -219,10 +225,13 @@ const styles = {
     minHeight: "70vh",
   },
   textContent: {
-    color: "white",
-    opacity: 0,
-    transform: "translateY(60px)",
+    color: "#1a1a1a", // Changed to dark gray/black for better visibility
+    opacity: 1, // Changed from 0 to 1 to ensure text is always visible
+    transform: "translateY(0)", // Changed from translateY(60px) to 0
     transition: "all 1s cubic-bezier(0.4, 0, 0.2, 1)",
+    textShadow: "2px 2px 4px rgba(255, 255, 255, 0.8)", // White shadow for dark text
+    position: "relative",
+    zIndex: 10, // Ensure text is above background
   },
   fadeInUp: {
     opacity: 1,
@@ -247,20 +256,27 @@ const styles = {
     lineHeight: "1.1",
     marginBottom: "var(--space-6)",
     fontFamily: "var(--font-family-serif)",
+    color: "#1a1a1a", // Changed to dark color
+    textShadow: "3px 3px 6px rgba(255, 255, 255, 0.9)", // White shadow for dark text
   },
   highlight: {
-    background: "linear-gradient(135deg, #fbbf24, #f59e0b)",
+    background: "linear-gradient(135deg, #1e40af, #3730a3)", // Dark blue gradient
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     backgroundClip: "text",
     position: "relative",
+    // Fallback color in case gradient text doesn't work
+    color: "#1e40af",
+    // Ensure text is visible even if gradient fails
+    textShadow: "2px 2px 4px rgba(255, 255, 255, 0.8)",
   },
   description: {
     fontSize: "var(--text-lg)",
     lineHeight: "1.7",
     marginBottom: "var(--space-8)",
-    color: "rgba(255, 255, 255, 0.9)",
+    color: "#2d2d2d", // Changed to dark gray
     maxWidth: "600px",
+    textShadow: "2px 2px 4px rgba(255, 255, 255, 0.8)", // White shadow for dark text
   },
   stats: {
     display: "flex",

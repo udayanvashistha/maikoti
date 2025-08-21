@@ -32,7 +32,7 @@ const Home = () => {
               🌄 Mountain Heritage
             </span>
             <h2 style={styles.sectionTitle}>
-              Discover the Beauty of <span style={styles.titleHighlight}>Maikoti Village</span>
+              Discover the Beauty of <span className="gradient-text-fallback" style={styles.titleHighlight}>Maikoti Village</span>
             </h2>
             <p style={styles.sectionDescription}>
               Experience the timeless charm of our Himalayan village through these breathtaking moments
