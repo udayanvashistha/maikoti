@@ -1,0 +1,196 @@
+/* Gallery Page Hover Effects and Responsive Styles */
+
+.filter-pill:hover {
+  background: var(--gray-200);
+  transform: translateY(-2px);
+}
+
+.filter-pill-active:hover {
+  filter: brightness(1.1);
+}
+
+.add-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+  filter: brightness(1.1);
+}
+
+.gallery-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-2xl);
+  border-color: var(--primary-200);
+}
+
+.gallery-card:hover .imageOverlay {
+  opacity: 1;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.05);
+}
+
+.lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.lightboxClose:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: rotate(90deg);
+}
+
+.modalCloseButton:hover {
+  background: var(--gray-100);
+  color: var(--gray-700);
+}
+
+.upload-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+  filter: brightness(1.1);
+}
+
+/* Input hover/focus states */
+.modal input:hover,
+.modal select:hover {
+  border-color: var(--primary-300);
+}
+
+.modal input:focus,
+.modal select:focus {
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+}
+
+.fileInputWrapper:hover .fileInputLabel {
+  border-color: var(--primary-400);
+  background: var(--primary-50);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .filterContainer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filterPills {
+    justify-content: flex-start;
+  }
+
+  .addButton {
+    width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+
+  .lightboxNav {
+    width: 50px;
+    height: 50px;
+    font-size: var(--text-4xl);
+  }
+
+  .lightboxNavPrev {
+    left: var(--space-4);
+  }
+
+  .lightboxNavNext {
+    right: var(--space-4);
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .filterContainer {
+    padding: var(--space-4);
+  }
+
+  .filterPills {
+    gap: var(--space-1);
+  }
+
+  .filterPill {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--text-xs);
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .image {
+    height: 200px;
+  }
+
+  .lightboxNav {
+    width: 44px;
+    height: 44px;
+    font-size: var(--text-3xl);
+  }
+
+  .lightboxNavPrev {
+    left: var(--space-2);
+  }
+
+  .lightboxNavNext {
+    right: var(--space-2);
+  }
+
+  .modal {
+    max-width: calc(100vw - var(--space-8));
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroSubtitle {
+    font-size: var(--text-base);
+  }
+
+  .filterLabel {
+    display: none;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .gallerySection {
+    padding: var(--space-12) var(--space-4);
+  }
+
+  .lightboxHeader {
+    padding: var(--space-4);
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .lightboxInfo {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .lightboxNav {
+    display: none;
+  }
+
+  .modalHeader,
+  .modalBody,
+  .modalFooter {
+    padding: var(--space-4);
+  }
+
+  .modalTitle {
+    font-size: var(--text-lg);
+  }
+}

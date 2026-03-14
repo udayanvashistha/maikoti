@@ -47,9 +47,9 @@ const Home = () => {
 
       {/* Top Locations */}
       <TopLocations />
-      
-      {/* Featured Moments */}
-      <FeaturedMoments />
+
+      {/* Blog Section */}
+      <NewsSection />
       
       {/* Village Documentary */}
       <VillageDocumentary />
@@ -57,12 +57,12 @@ const Home = () => {
       {/* Seasons & Events */}
       <SeasonsEvents />
       
-      {/* News Section */}
-      <NewsSection />
-      
       {/* Village Information */}
       <VillageMaikoti />
       
+      {/* Featured Moments */}
+      <FeaturedMoments />
+
       {/* How to Reach */}
       <HowToReach />
       

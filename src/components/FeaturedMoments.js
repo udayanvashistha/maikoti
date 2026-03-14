@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import img1 from "../assets/images/village/village1.jpg";
 import img2 from "../assets/images/village/pexel/pexel1.jpg";
 import img3 from "../assets/images/village/pexel/pexel7.jpg";
@@ -55,6 +56,7 @@ const FeaturedMoments = () => {
   const [visibleCards, setVisibleCards] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
   const sectionRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -136,6 +138,19 @@ const FeaturedMoments = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        <div style={styles.planCta}>
+          <div style={styles.planCtaContent}>
+            <h3 style={styles.planCtaTitle}>Ready to explore Maikoti?</h3>
+            <p style={styles.planCtaDescription}>
+              Plan your journey and discover the hidden gems of our beautiful village.
+            </p>
+            <button style={styles.planCtaButton} onClick={() => navigate("/plan")}>
+              <span>🗺️</span>
+              Start Planning Your Visit
+            </button>
+          </div>
         </div>
 
         {/* Call to Action */}
@@ -339,6 +354,49 @@ const styles = {
     fontSize: "var(--text-sm)",
   },
   photographerName: {},
+  planCta: {
+    background: "var(--gradient-primary)",
+    borderRadius: "var(--radius-2xl)",
+    padding: "var(--space-12)",
+    textAlign: "center",
+    color: "white",
+    position: "relative",
+    overflow: "hidden",
+    marginBottom: "var(--space-8)",
+    boxShadow: "var(--shadow-xl)",
+  },
+  planCtaContent: {
+    position: "relative",
+    zIndex: 1,
+  },
+  planCtaTitle: {
+    fontSize: "var(--text-3xl)",
+    fontWeight: "800",
+    marginBottom: "var(--space-4)",
+    fontFamily: "var(--font-family-serif)",
+  },
+  planCtaDescription: {
+    fontSize: "var(--text-lg)",
+    color: "rgba(255, 255, 255, 0.9)",
+    maxWidth: "560px",
+    lineHeight: "1.7",
+    margin: "0 auto var(--space-6)",
+  },
+  planCtaButton: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "var(--space-2)",
+    padding: "var(--space-4) var(--space-8)",
+    background: "white",
+    color: "var(--primary-600)",
+    border: "none",
+    borderRadius: "var(--radius-full)",
+    fontSize: "var(--text-base)",
+    fontWeight: "700",
+    cursor: "pointer",
+    transition: "var(--transition-normal)",
+    boxShadow: "var(--shadow-lg)",
+  },
   cta: {
     textAlign: "center",
     background: "white",

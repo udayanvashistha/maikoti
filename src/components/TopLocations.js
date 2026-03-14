@@ -11,7 +11,7 @@ const locations = [
     img: img1,
     category: "Sacred Sites",
     rating: 4.8,
-    visitors: "1.2k+ visitors"
+    visitors: "1.2k+ visitors",
   },
   {
     title: "Narshingh Temple",
@@ -19,7 +19,7 @@ const locations = [
     img: img2,
     category: "Heritage",
     rating: 4.7,
-    visitors: "950+ visitors"
+    visitors: "950+ visitors",
   },
   {
     title: "Bugani Market",
@@ -27,7 +27,7 @@ const locations = [
     img: img3,
     category: "Cultural",
     rating: 4.6,
-    visitors: "2.1k+ visitors"
+    visitors: "2.1k+ visitors",
   },
   {
     title: "Padmavati Temple",
@@ -35,7 +35,7 @@ const locations = [
     img: img4,
     category: "Spiritual",
     rating: 4.9,
-    visitors: "800+ visitors"
+    visitors: "800+ visitors",
   },
 ];
 
@@ -48,10 +48,9 @@ const TopLocations = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Animate cards one by one
             locations.forEach((_, index) => {
               setTimeout(() => {
-                setVisibleCards(prev => [...prev, index]);
+                setVisibleCards((prev) => [...prev, index]);
               }, index * 200);
             });
             observer.unobserve(entry.target);
@@ -71,11 +70,13 @@ const TopLocations = () => {
   const StarRating = ({ rating }) => {
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 !== 0;
-    
+
     return (
       <div style={styles.starRating}>
         {[...Array(fullStars)].map((_, i) => (
-          <span key={i} style={styles.starFull}>⭐</span>
+          <span key={i} style={styles.starFull}>
+            ⭐
+          </span>
         ))}
         {hasHalfStar && <span style={styles.starHalf}>⭐</span>}
         <span style={styles.ratingText}>{rating}</span>
@@ -86,21 +87,17 @@ const TopLocations = () => {
   return (
     <section ref={sectionRef} style={styles.section}>
       <div style={styles.container}>
-        {/* Section Header */}
         <div style={styles.header}>
-          <div style={styles.headerBadge}>
-            ✨ Discover Amazing Places
-          </div>
+          <div style={styles.headerBadge}>✨ Discover Amazing Places</div>
           <h2 style={styles.heading}>
             Top Destinations in <span style={styles.highlight}>Maikoti Village</span>
           </h2>
           <p style={styles.subheading}>
-            Explore the most captivating locations that showcase the rich heritage, 
+            Explore the most captivating locations that showcase the rich heritage,
             spiritual essence, and natural beauty of our mountain village.
           </p>
         </div>
 
-        {/* Locations Grid */}
         <div style={styles.grid}>
           {locations.map((location, index) => (
             <div
@@ -110,13 +107,14 @@ const TopLocations = () => {
                 ...(visibleCards.includes(index) ? styles.cardVisible : styles.cardHidden),
                 animationDelay: `${index * 0.1}s`,
               }}
+              className="top-locations-card"
             >
-              {/* Card Image */}
               <div style={styles.imageContainer}>
-                <img 
-                  src={location.img} 
-                  alt={location.title} 
+                <img
+                  src={location.img}
+                  alt={location.title}
                   style={styles.image}
+                  className="card-image"
                 />
                 <div style={styles.imageOverlay}>
                   <span style={styles.category}>{location.category}</span>
@@ -127,44 +125,28 @@ const TopLocations = () => {
                 </div>
               </div>
 
-              {/* Card Content */}
               <div style={styles.content}>
                 <div style={styles.titleRow}>
                   <h3 style={styles.title}>{location.title}</h3>
                   <StarRating rating={location.rating} />
                 </div>
-                
+
                 <p style={styles.description}>{location.desc}</p>
-                
+
                 <div style={styles.cardFooter}>
-                  <button style={styles.exploreButton}>
+                  <button style={styles.exploreButton} className="top-locations-explore-btn">
                     <span style={styles.buttonIcon}>📍</span>
                     Explore Location
                   </button>
-                  <button style={styles.shareButton}>
+                  <button style={styles.shareButton} className="top-locations-share-btn">
                     <span style={styles.buttonIcon}>🔗</span>
                   </button>
                 </div>
               </div>
 
-              {/* Hover effect overlay */}
-              <div style={styles.hoverOverlay}></div>
+              <div style={styles.hoverOverlay} className="card-hover-overlay"></div>
             </div>
           ))}
-        </div>
-
-        {/* Bottom CTA */}
-        <div style={styles.ctaSection}>
-          <div style={styles.ctaContent}>
-            <h3 style={styles.ctaTitle}>Ready to explore Maikoti?</h3>
-            <p style={styles.ctaDescription}>
-              Plan your journey and discover the hidden gems of our beautiful village.
-            </p>
-            <button style={styles.ctaButton}>
-              <span>🗺️</span>
-              Start Planning Your Visit
-            </button>
-          </div>
         </div>
       </div>
     </section>
@@ -386,93 +368,46 @@ const styles = {
     pointerEvents: "none",
     mixBlendMode: "multiply",
   },
-  ctaSection: {
-    background: "var(--gradient-primary)",
-    borderRadius: "var(--radius-2xl)",
-    padding: "var(--space-12)",
-    textAlign: "center",
-    color: "white",
-    position: "relative",
-    overflow: "hidden",
-  },
-  ctaContent: {
-    position: "relative",
-    zIndex: 2,
-  },
-  ctaTitle: {
-    fontSize: "var(--text-3xl)",
-    fontWeight: "800",
-    marginBottom: "var(--space-4)",
-    fontFamily: "var(--font-family-serif)",
-  },
-  ctaDescription: {
-    fontSize: "var(--text-lg)",
-    color: "rgba(255, 255, 255, 0.9)",
-    marginBottom: "var(--space-6)",
-    maxWidth: "500px",
-    margin: "0 auto var(--space-6)",
-  },
-  ctaButton: {
-    display: "inline-flex",
-    alignItems: "center",
-    gap: "var(--space-2)",
-    padding: "var(--space-4) var(--space-8)",
-    background: "white",
-    color: "var(--primary-600)",
-    border: "none",
-    borderRadius: "var(--radius-full)",
-    fontSize: "var(--text-base)",
-    fontWeight: "700",
-    cursor: "pointer",
-    transition: "var(--transition-normal)",
-    boxShadow: "var(--shadow-lg)",
-  },
 };
 
-// Add hover effects
-if (typeof document !== 'undefined') {
+if (typeof document !== "undefined") {
   const hoverStyles = `
     .top-locations-card:hover {
       transform: translateY(-8px) !important;
       box-shadow: var(--shadow-2xl) !important;
     }
-    
+
     .top-locations-card:hover .card-image {
       transform: scale(1.1) !important;
     }
-    
+
     .top-locations-card:hover .card-hover-overlay {
       opacity: 0.05 !important;
     }
-    
+
     .top-locations-explore-btn:hover {
       filter: brightness(1.1) !important;
       transform: translateY(-2px) !important;
     }
-    
+
     .top-locations-share-btn:hover {
       background: var(--primary-100) !important;
       color: var(--primary-600) !important;
     }
-    
-    .top-locations-cta-btn:hover {
-      transform: translateY(-3px) !important;
-      box-shadow: var(--shadow-xl) !important;
-    }
-    
+
     @media (max-width: 768px) {
       .top-locations-grid {
         grid-template-columns: 1fr !important;
         gap: var(--space-6) !important;
       }
-      
+
       .top-locations-card {
         margin: 0 var(--space-2) !important;
       }
     }
   `;
-  
-  const styleSheet = document.createElement('style');
+
+  const styleSheet = document.createElement("style");
   styleSheet.textContent = hoverStyles;
   document.head.appendChild(styleSheet);
 }

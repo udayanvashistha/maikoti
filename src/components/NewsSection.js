@@ -1,110 +1,60 @@
 import React from "react";
-import news1 from "../assets/images/village/village1.jpg"; // Use your own news images later
-import news2 from "../assets/images/village/village2.jpg";
-import news3 from "../assets/images/village/village3.jpg";
-
-const newsItems = [
-  {
-    title: "News -1",
-    desc: "This is a placeholder for upcoming village news and announcements.",
-    image: news1,
-  },
-  {
-    title: "News -2",
-    desc: "News headlines related to cultural events and activities will appear here soon.",
-    image: news2,
-  },
-  {
-    title: "News-3",
-    desc: "Stay tuned for updates about village development projects and initiatives.",
-    image: news3,
-  },
-];
+import { Link } from "react-router-dom";
+import { blogPosts } from "../api/blogs";
+import "./blogs/BlogPages.css";
 
 const NewsSection = () => {
   return (
-    <section style={styles.section}>
-      <h2 style={styles.heading}>📰 News & Updates</h2>
-      <p style={styles.subtext}>
-        Stay informed with the latest news, events, and developments from
-        Maikoti.
-      </p>
-      <div style={styles.grid}>
-        {newsItems.map((news, idx) => (
-          <div key={idx} style={styles.card}>
-            <img src={news.image} alt={news.title} style={styles.image} />
-            <div style={styles.content}>
-              <h3 style={styles.title}>{news.title}</h3>
-              <p style={styles.desc}>{news.desc}</p>
+    <section className="blog-section">
+      <div className="blog-section__inner">
+        <div className="blog-section__header">
+          <span className="blog-section__eyebrow">Village Blogs</span>
+          <h2 className="blog-section__title">Stories that give Maikoti real depth</h2>
+          <p className="blog-section__text">
+            Read curated English and Hindi blog posts on Maikoti's identity,
+            culture, village life, and regional significance.
+          </p>
+        </div>
 
-              <button style={styles.button}>Read More</button>
-            </div>
-          </div>
-        ))}
+        <div className="blog-grid">
+          {blogPosts.map((post) => (
+            <article key={post.slug} className="blog-card">
+              <Link className="blog-card__media" to={`/blogs/${post.slug}`}>
+                <img src={post.image} alt={post.title} className="blog-card__image" />
+              </Link>
+
+              <div className="blog-card__body">
+                <div className="blog-card__meta">
+                  <span className="blog-pill">{post.language}</span>
+                  <span className="blog-meta-separator" aria-hidden="true">
+                    /
+                  </span>
+                  <span className="blog-card__category">{post.category}</span>
+                </div>
+
+                <h3 className="blog-card__title">
+                  <Link className="blog-card__title-link" to={`/blogs/${post.slug}`}>
+                    {post.title}
+                  </Link>
+                </h3>
+
+                <p className="blog-card__excerpt">{post.excerpt}</p>
+
+                <div className="blog-card__footer">
+                  <span className="blog-card__reading-time">
+                    {post.readingMinutes} min read
+                  </span>
+                  <Link className="blog-card__link" to={`/blogs/${post.slug}`}>
+                    Read full blog
+                  </Link>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
-};
-
-const styles = {
-  section: {
-    background: "linear-gradient(to right, #fef0e3, #fdf7ff)",
-    padding: "60px 20px",
-    textAlign: "center",
-  },
-  heading: {
-    fontSize: "32px",
-    fontWeight: "bold",
-    marginBottom: "10px",
-    color: "#1a1a1a",
-  },
-  subtext: {
-    fontSize: "16px",
-    color: "#555",
-    marginBottom: "40px",
-  },
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-    gap: "24px",
-    maxWidth: "1100px",
-    margin: "0 auto",
-  },
-  card: {
-    background: "#fff",
-    borderRadius: "16px",
-    boxShadow: "0 8px 20px rgba(0, 0, 0, 0.06)",
-    overflow: "hidden",
-    transition: "transform 0.3s ease",
-  },
-  image: {
-    width: "100%",
-    height: "180px",
-    objectFit: "cover",
-  },
-  content: {
-    padding: "20px",
-  },
-  title: {
-    fontSize: "18px",
-    fontWeight: "600",
-    marginBottom: "10px",
-    color: "#333",
-  },
-  desc: {
-    fontSize: "14px",
-    color: "#666",
-    marginBottom: "15px",
-  },
-  button: {
-    background: "#c94b31",
-    color: "#fff",
-    border: "none",
-    padding: "10px 16px",
-    borderRadius: "8px",
-    cursor: "pointer",
-    fontWeight: "600",
-  },
 };
 
 export default NewsSection;

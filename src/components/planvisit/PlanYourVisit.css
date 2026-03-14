@@ -1,0 +1,59 @@
+/* Plan Visit Page Hover Effects and Responsive Styles */
+
+.plan-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-2xl);
+  border-color: var(--primary-200);
+}
+
+.plan-card:hover .cardIconWrapper {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.plan-card:hover .cardAccent {
+  height: 8px;
+}
+
+.cta-button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  filter: brightness(0.95);
+}
+
+.cta-button-secondary:hover {
+  background: white;
+  color: var(--primary-600);
+  border-color: white;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .plan-card {
+    padding: var(--space-6);
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .cta-button-primary,
+  .cta-button-secondary {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 2rem !important;
+  }
+
+  .heroSubtitle {
+    font-size: var(--text-base) !important;
+  }
+
+  .contactBox {
+    flex-direction: column;
+    text-align: center;
+  }
+}
