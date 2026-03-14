@@ -1,5 +1,4 @@
 import React from "react";
-import img from "../assets/images/home.jpg";
 import monsoon from "../assets/images/session/rainy.png";
 import winter from "../assets/images/village/village5.jpg";
 import holi from "../assets/images/session/holi.avif";

@@ -195,11 +195,11 @@ const Footer = () => {
             </div>
             
             <div style={styles.bottomLinks}>
-              <a href="#" style={styles.bottomLink}>Privacy Policy</a>
+              <span style={styles.bottomLink}>Privacy Policy</span>
               <span style={styles.separator}>•</span>
-              <a href="#" style={styles.bottomLink}>Terms of Service</a>
+              <span style={styles.bottomLink}>Terms of Service</span>
               <span style={styles.separator}>•</span>
-              <a href="#" style={styles.bottomLink}>Sitemap</a>
+              <span style={styles.bottomLink}>Sitemap</span>
             </div>
           </div>
         </div>

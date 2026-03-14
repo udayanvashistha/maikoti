@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import img1 from "../../assets/images/village/village1.jpg";
 import img2 from "../../assets/images/village/village2.jpg";
 import img3 from "../../assets/images/village/village3.jpg";
@@ -10,7 +9,6 @@ import "./GalleryPage.css";
 const categories = ["All", "Nature", "People", "Culture", "Festivals"];
 
 const GalleryPage = () => {
-  const navigate = useNavigate();
   const [selectedFilter, setSelectedFilter] = useState("All");
   const [modalOpen, setModalOpen] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);

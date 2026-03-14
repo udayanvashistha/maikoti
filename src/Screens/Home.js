@@ -8,7 +8,6 @@ import img3 from "../assets//images/village/village3.jpg";
 import ImageSlider from "../components/ImagesSlider";
 import TopLocations from "../components/TopLocations";
 import FeaturedMoments from "../components/FeaturedMoments";
-import Photographers from "../components/Photographers";
 import SeasonsEvents from "../components/SeasonsEvents";
 import Footer from "../components/Footer";
 import VillageMaikoti from "../components/VillageMaikoti";
