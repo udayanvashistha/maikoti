@@ -40,29 +40,7 @@ const BlogPostPage = () => {
         <section className="blog-post-hero">
           <div className="blog-post-hero__inner">
             <div className="blog-post-hero__copy">
-              <Link className="blog-back-link" to="/">
-                Back to home
-              </Link>
-
-              <div className="blog-post-hero__meta">
-                <span className="blog-pill">{post.language}</span>
-                <span className="blog-pill blog-pill--soft">{post.category}</span>
-                <span className="blog-post-hero__reading">
-                  {post.readingMinutes} min read
-                </span>
-              </div>
-
               <h1 className="blog-post-hero__title">{post.title}</h1>
-              <p className="blog-post-hero__subtitle">{post.subtitle}</p>
-              <p className="blog-post-hero__excerpt">{post.excerpt}</p>
-            </div>
-
-            <div className="blog-post-hero__image-frame">
-              <img
-                src={post.image}
-                alt={post.title}
-                className="blog-post-hero__image"
-              />
             </div>
           </div>
         </section>
