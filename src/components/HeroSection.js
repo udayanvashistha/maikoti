@@ -10,6 +10,9 @@ import img6 from "../assets/images/village/village1.jpg";
 const HeroSection = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [viewportWidth, setViewportWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 1280
+  );
 
   const heroImages = [img1, img2, img3, img4, img5, img6];
 
@@ -23,8 +26,32 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, [heroImages.length]);
 
+  useEffect(() => {
+    const handleResize = () => setViewportWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const isTablet = viewportWidth <= 1100;
+  const isMobile = viewportWidth <= 768;
+  const imageCardTransforms = isMobile
+    ? [{}, {}, {}, {}]
+    : [
+        { transform: "translateY(-10px) rotate(-2deg)" },
+        { transform: "translateY(-6px) rotate(2deg)" },
+        { transform: "translateY(8px) rotate(-1.5deg)" },
+        { transform: "translateY(12px) rotate(1.5deg)" },
+      ];
+
   return (
-    <section style={styles.hero}>
+    <section
+      style={{
+        ...styles.hero,
+        ...(isTablet ? styles.heroTablet : {}),
+        ...(isMobile ? styles.heroMobile : {}),
+      }}
+    >
       {/* Background with animated overlay */}
       <div style={styles.backgroundContainer}>
         <div style={styles.backgroundOverlay}></div>
@@ -41,75 +68,115 @@ const HeroSection = () => {
         ))}
       </div>
 
-      <div style={styles.container}>
-        <div style={styles.content}>
+      <div
+        style={{
+          ...styles.container,
+          ...(isMobile ? styles.containerMobile : {}),
+        }}
+      >
+        <div
+          style={{
+            ...styles.content,
+            ...(isTablet ? styles.contentTablet : {}),
+            ...(isMobile ? styles.contentMobile : {}),
+          }}
+        >
           {/* Main Content */}
           <div
-            className="hero-text-visible"
             style={{
               ...styles.textContent,
-              // Always apply fadeInUp styles to ensure visibility
               ...styles.fadeInUp,
-              // Add animation class if visible
               ...(isVisible ? { animation: "fadeInUp 1s ease-out" } : {}),
-              // Remove background - just keep text shadows for visibility
-            }}>
-            <span style={styles.badge}>
-              🌟 Discover Hidden Gems
-            </span>
+              ...(isMobile ? styles.textContentMobile : {}),
+            }}
+          >
+            <span style={styles.badge}>Discover Hidden Gems</span>
 
-            <h1 className="hero-text-visible" style={styles.heading}>
+            <h1
+              style={{
+                ...styles.heading,
+                ...(isTablet ? styles.headingTablet : {}),
+                ...(isMobile ? styles.headingMobile : {}),
+              }}
+            >
               Journey to the Heart of{" "}
               <span className="gradient-text-fallback" style={styles.highlight}>Maikoti Village</span>
             </h1>
             
-            <p className="hero-text-visible" style={styles.description}>
+            <p
+              style={{
+                ...styles.description,
+                ...(isMobile ? styles.descriptionMobile : {}),
+              }}
+            >
               Nestled in the majestic Himalayas, Maikoti offers an authentic glimpse into
               traditional mountain life, ancient temples, and breathtaking natural beauty
               that will leave you spellbound.
             </p>
 
-            <div style={styles.stats}>
+            <div
+              style={{
+                ...styles.stats,
+                ...(isMobile ? styles.statsMobile : {}),
+              }}
+            >
               <div style={styles.statItem}>
-                <span style={styles.statNumber}>2,000+</span>
-                <span style={styles.statLabel}>Visitors Yearly</span>
+                <span style={styles.statNumber}>100+</span>
+                <span style={styles.statLabel}>Annual Visitors</span>
               </div>
               <div style={styles.statItem}>
                 <span style={styles.statNumber}>500+</span>
                 <span style={styles.statLabel}>Years History</span>
               </div>
               <div style={styles.statItem}>
-                <span style={styles.statNumber}>15+</span>
+                <span style={styles.statNumber}>5+</span>
                 <span style={styles.statLabel}>Sacred Temples</span>
               </div>
             </div>
 
-            <div style={styles.buttonGroup}>
+            <div
+              style={{
+                ...styles.buttonGroup,
+                ...(isMobile ? styles.buttonGroupMobile : {}),
+              }}
+            >
               <Link to="/plan" style={styles.primaryButton} className="btn btn-primary">
-                <span>🗺️</span>
                 Plan Your Journey
               </Link>
               <Link to="/gallery" style={styles.secondaryButton} className="btn btn-glass">
-                <span>📸</span>
                 Explore Gallery
               </Link>
             </div>
           </div>
 
           {/* Visual Elements */}
-          <div style={styles.visualContent}>
-            <div style={styles.imageGrid}>
+          <div
+            style={{
+              ...styles.visualContent,
+              ...(isTablet ? styles.visualContentTablet : {}),
+              ...(isMobile ? styles.visualContentMobile : {}),
+            }}
+          >
+            <div
+              style={{
+                ...styles.imageGrid,
+                ...(isMobile ? styles.imageGridMobile : {}),
+              }}
+            >
               {heroImages.slice(0, 4).map((img, index) => (
                 <div
                   key={index}
+                  className="hero-grid-image"
                   style={{
                     ...styles.gridImage,
+                    ...imageCardTransforms[index],
                     animationDelay: `${index * 0.2}s`,
                   }}
                 >
                   <img
                     src={img}
                     alt={`Maikoti scene ${index + 1}`}
+                    className="hero-grid-photo"
                     style={styles.image}
                   />
                   <div style={styles.imageOverlay}></div>
@@ -118,21 +185,25 @@ const HeroSection = () => {
             </div>
 
             {/* Floating decorative elements */}
-            <div style={styles.floatingElements}>
-              <div style={{ ...styles.floatingElement, ...styles.float1 }}>🏔️</div>
-              <div style={{ ...styles.floatingElement, ...styles.float2 }}>🌸</div>
-              <div style={{ ...styles.floatingElement, ...styles.float3 }}>🕉️</div>
-            </div>
+            {!isMobile ? (
+              <div style={styles.floatingElements}>
+                <div style={{ ...styles.floatingElement, ...styles.float1 }}>M</div>
+                <div style={{ ...styles.floatingElement, ...styles.float2 }}>Village</div>
+                <div style={{ ...styles.floatingElement, ...styles.float3 }}>Uttarakhand</div>
+              </div>
+            ) : null}
           </div>
         </div>
 
         {/* Scroll indicator */}
-        <div style={styles.scrollIndicator}>
-          <div style={styles.scrollMouse}>
-            <div style={styles.scrollWheel}></div>
+        {!isMobile ? (
+          <div style={styles.scrollIndicator}>
+            <div style={styles.scrollMouse}>
+              <div style={styles.scrollWheel}></div>
+            </div>
+            <span style={styles.scrollText}>Scroll to explore</span>
           </div>
-          <span style={styles.scrollText}>Scroll to explore</span>
-        </div>
+        ) : null}
       </div>
 
       {/* CSS Keyframes */}
@@ -169,6 +240,10 @@ const HeroSection = () => {
           0% { transform: translateX(-100%); }
           100% { transform: translateX(100%); }
         }
+
+        .hero-grid-image:hover .hero-grid-photo {
+          transform: scale(1.08);
+        }
       `}</style>
     </section>
   );
@@ -177,11 +252,20 @@ const HeroSection = () => {
 const styles = {
   hero: {
     position: "relative",
-    minHeight: "100vh",
+    minHeight: "min(94vh, 860px)",
     display: "flex",
     alignItems: "center",
     overflow: "hidden",
-    paddingTop: "80px", // Account for fixed navbar
+    paddingTop: "92px",
+    paddingBottom: "56px",
+  },
+  heroTablet: {
+    minHeight: "auto",
+    paddingBottom: "44px",
+  },
+  heroMobile: {
+    paddingTop: "82px",
+    paddingBottom: "28px",
   },
   backgroundContainer: {
     position: "absolute",
@@ -197,7 +281,8 @@ const styles = {
     left: 0,
     right: 0,
     bottom: 0,
-    background: "linear-gradient(135deg, rgba(6, 78, 59, 0.85) 0%, rgba(5, 150, 105, 0.75) 50%, rgba(16, 185, 129, 0.85) 100%)",
+    background:
+      "linear-gradient(130deg, rgba(5, 24, 37, 0.86) 0%, rgba(9, 84, 89, 0.76) 45%, rgba(33, 106, 76, 0.78) 100%)",
     zIndex: 1,
   },
   backgroundImage: {
@@ -212,26 +297,36 @@ const styles = {
   container: {
     position: "relative",
     zIndex: 2,
-    maxWidth: "1400px",
+    maxWidth: "1280px",
     margin: "0 auto",
-    padding: "0 var(--space-4)",
+    padding: "0 var(--space-5)",
     width: "100%",
+  },
+  containerMobile: {
+    padding: "0 var(--space-4)",
   },
   content: {
     display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-    gap: "var(--space-16)",
+    gridTemplateColumns: "minmax(0, 1.08fr) minmax(320px, 0.92fr)",
+    gap: "clamp(1.5rem, 3vw, 3.75rem)",
     alignItems: "center",
-    minHeight: "70vh",
+  },
+  contentTablet: {
+    gridTemplateColumns: "1fr",
+    gap: "var(--space-10)",
+  },
+  contentMobile: {
+    gap: "var(--space-7)",
   },
   textContent: {
-    color: "#1a1a1a", // Changed to dark gray/black for better visibility
-    opacity: 1, // Changed from 0 to 1 to ensure text is always visible
-    transform: "translateY(0)", // Changed from translateY(60px) to 0
-    transition: "all 1s cubic-bezier(0.4, 0, 0.2, 1)",
-    textShadow: "2px 2px 4px rgba(255, 255, 255, 0.8)", // White shadow for dark text
+    color: "#f8fafc",
+    padding: 0,
     position: "relative",
-    zIndex: 10, // Ensure text is above background
+    zIndex: 10,
+    maxWidth: "700px",
+  },
+  textContentMobile: {
+    padding: 0,
   },
   fadeInUp: {
     opacity: 1,
@@ -240,98 +335,125 @@ const styles = {
   badge: {
     display: "inline-flex",
     alignItems: "center",
-    gap: "var(--space-2)",
-    background: "rgba(255, 255, 255, 0.2)",
-    backdropFilter: "blur(10px)",
-    padding: "var(--space-2) var(--space-4)",
-    borderRadius: "var(--radius-full)",
-    fontSize: "var(--text-sm)",
-    fontWeight: "600",
-    marginBottom: "var(--space-6)",
-    border: "1px solid rgba(255, 255, 255, 0.3)",
+    background: "rgba(255, 255, 255, 0.78)",
+    backdropFilter: "blur(4px)",
+    padding: "0.45rem 0.82rem",
+    borderRadius: "999px",
+    fontSize: "0.78rem",
+    fontWeight: "700",
+    letterSpacing: "0.03em",
+    marginBottom: "var(--space-4)",
+    border: "1px solid rgba(15, 23, 42, 0.18)",
+    color: "#0f172a",
+    textTransform: "uppercase",
   },
   heading: {
-    fontSize: "clamp(2.5rem, 5vw, 4rem)",
+    fontSize: "clamp(2.35rem, 4.5vw, 4.15rem)",
     fontWeight: "800",
-    lineHeight: "1.1",
-    marginBottom: "var(--space-6)",
+    lineHeight: "1.05",
+    marginBottom: "var(--space-5)",
     fontFamily: "var(--font-family-serif)",
-    color: "#1a1a1a", // Changed to dark color
-    textShadow: "3px 3px 6px rgba(255, 255, 255, 0.9)", // White shadow for dark text
+    color: "#111827",
+    maxWidth: "18ch",
+  },
+  headingTablet: {
+    maxWidth: "100%",
+  },
+  headingMobile: {
+    fontSize: "clamp(2rem, 9vw, 2.9rem)",
+    lineHeight: "1.06",
+    marginBottom: "var(--space-4)",
   },
   highlight: {
-    background: "linear-gradient(135deg, #1e40af, #3730a3)", // Dark blue gradient
+    background: "linear-gradient(120deg, #fde68a 0%, #bfdbfe 50%, #c4b5fd 100%)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     backgroundClip: "text",
-    position: "relative",
-    // Fallback color in case gradient text doesn't work
-    color: "#1e40af",
-    // Ensure text is visible even if gradient fails
-    textShadow: "2px 2px 4px rgba(255, 255, 255, 0.8)",
+    color: "#dbeafe",
   },
   description: {
-    fontSize: "var(--text-lg)",
-    lineHeight: "1.7",
-    marginBottom: "var(--space-8)",
-    color: "#2d2d2d", // Changed to dark gray
-    maxWidth: "600px",
-    textShadow: "2px 2px 4px rgba(255, 255, 255, 0.8)", // White shadow for dark text
+    fontSize: "clamp(1.05rem, 1.35vw, 1.36rem)",
+    lineHeight: "1.65",
+    marginBottom: "var(--space-7)",
+    color: "#334155",
+    maxWidth: "58ch",
+  },
+  descriptionMobile: {
+    fontSize: "1.02rem",
+    lineHeight: "1.55",
+    marginBottom: "var(--space-6)",
   },
   stats: {
-    display: "flex",
-    gap: "var(--space-8)",
-    marginBottom: "var(--space-10)",
-    flexWrap: "wrap",
+    display: "grid",
+    gridTemplateColumns: "repeat(3, minmax(100px, 1fr))",
+    gap: "0.75rem",
+    marginBottom: "var(--space-8)",
+    maxWidth: "560px",
+  },
+  statsMobile: {
+    gridTemplateColumns: "repeat(3, minmax(82px, 1fr))",
+    gap: "0.55rem",
+    marginBottom: "var(--space-6)",
   },
   statItem: {
     textAlign: "center",
+    background: "rgba(255, 255, 255, 0.74)",
+    border: "1px solid rgba(15, 23, 42, 0.14)",
+    borderRadius: "14px",
+    padding: "0.72rem 0.55rem 0.62rem",
+    backdropFilter: "blur(4px)",
   },
   statNumber: {
     display: "block",
-    fontSize: "var(--text-3xl)",
+    fontSize: "clamp(1.55rem, 2.25vw, 2.1rem)",
     fontWeight: "800",
-    color: "#fbbf24",
+    color: "#b45309",
     lineHeight: "1",
   },
   statLabel: {
-    fontSize: "var(--text-sm)",
-    color: "rgba(255, 255, 255, 0.8)",
-    fontWeight: "500",
+    fontSize: "0.82rem",
+    color: "#334155",
+    fontWeight: "600",
+    marginTop: "0.26rem",
+    display: "block",
   },
   buttonGroup: {
     display: "flex",
-    gap: "var(--space-4)",
+    gap: "0.8rem",
     flexWrap: "wrap",
+  },
+  buttonGroupMobile: {
+    flexDirection: "column",
+    alignItems: "stretch",
   },
   primaryButton: {
     display: "inline-flex",
     alignItems: "center",
-    gap: "var(--space-2)",
-    padding: "var(--space-4) var(--space-8)",
+    justifyContent: "center",
+    padding: "0.86rem 1.45rem",
     background: "linear-gradient(135deg, #f59e0b, #d97706)",
-    color: "white",
+    color: "#fff",
     textDecoration: "none",
-    borderRadius: "var(--radius-full)",
+    borderRadius: "999px",
     fontWeight: "700",
-    fontSize: "var(--text-base)",
-    boxShadow: "0 10px 30px rgba(245, 158, 11, 0.4)",
+    fontSize: "0.99rem",
+    boxShadow: "0 12px 26px rgba(245, 158, 11, 0.36)",
     transition: "all 0.3s ease",
     border: "none",
   },
   secondaryButton: {
     display: "inline-flex",
     alignItems: "center",
-    gap: "var(--space-2)",
-    padding: "var(--space-4) var(--space-8)",
-    background: "rgba(255, 255, 255, 0.15)",
-    backdropFilter: "blur(10px)",
-    color: "white",
+    justifyContent: "center",
+    padding: "0.86rem 1.45rem",
+    background: "rgba(255, 255, 255, 0.84)",
+    backdropFilter: "blur(4px)",
+    color: "#0f172a",
     textDecoration: "none",
-    borderRadius: "var(--radius-full)",
+    borderRadius: "999px",
     fontWeight: "600",
-    fontSize: "var(--text-base)",
-    border: "1px solid rgba(255, 255, 255, 0.3)",
+    fontSize: "0.99rem",
+    border: "1px solid rgba(15, 23, 42, 0.2)",
     transition: "all 0.3s ease",
   },
   visualContent: {
@@ -340,19 +462,31 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
   },
+  visualContentTablet: {
+    justifyContent: "flex-start",
+  },
+  visualContentMobile: {
+    justifyContent: "center",
+  },
   imageGrid: {
     display: "grid",
-    gridTemplateColumns: "1fr 1fr",
+    gridTemplateColumns: "repeat(2, minmax(150px, 1fr))",
     gap: "var(--space-4)",
-    maxWidth: "400px",
+    width: "min(100%, 440px)",
+  },
+  imageGridMobile: {
+    gap: "0.65rem",
+    width: "100%",
+    maxWidth: "360px",
   },
   gridImage: {
     position: "relative",
-    borderRadius: "var(--radius-2xl)",
+    borderRadius: "22px",
     overflow: "hidden",
-    aspectRatio: "1",
+    aspectRatio: "1 / 1",
     animation: "float 6s ease-in-out infinite",
-    boxShadow: "0 20px 40px rgba(0, 0, 0, 0.3)",
+    boxShadow: "0 20px 40px rgba(2, 6, 23, 0.35)",
+    border: "1px solid rgba(255, 255, 255, 0.28)",
   },
   image: {
     width: "100%",
@@ -366,9 +500,8 @@ const styles = {
     left: 0,
     right: 0,
     bottom: 0,
-    background: "linear-gradient(45deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.1))",
-    opacity: 0,
-    transition: "opacity 0.3s ease",
+    background:
+      "linear-gradient(160deg, rgba(15, 23, 42, 0.16), rgba(16, 185, 129, 0.12))",
   },
   floatingElements: {
     position: "absolute",
@@ -380,27 +513,35 @@ const styles = {
   },
   floatingElement: {
     position: "absolute",
-    fontSize: "2rem",
+    fontSize: "0.74rem",
+    fontWeight: "700",
+    letterSpacing: "0.08em",
+    textTransform: "uppercase",
+    color: "rgba(255, 255, 255, 0.84)",
+    border: "1px solid rgba(255, 255, 255, 0.28)",
+    background: "rgba(5, 24, 37, 0.52)",
+    borderRadius: "999px",
+    padding: "0.35rem 0.55rem",
     animation: "float 4s ease-in-out infinite",
   },
   float1: {
-    top: "10%",
-    right: "10%",
+    top: "4%",
+    right: "4%",
     animationDelay: "0s",
   },
   float2: {
-    bottom: "20%",
-    left: "10%",
+    bottom: "8%",
+    left: "-2%",
     animationDelay: "1s",
   },
   float3: {
-    top: "60%",
-    right: "20%",
+    top: "68%",
+    right: "-4%",
     animationDelay: "2s",
   },
   scrollIndicator: {
     position: "absolute",
-    bottom: "var(--space-8)",
+    bottom: "var(--space-6)",
     left: "50%",
     transform: "translateX(-50%)",
     display: "flex",
@@ -410,8 +551,8 @@ const styles = {
     color: "rgba(255, 255, 255, 0.8)",
   },
   scrollMouse: {
-    width: "24px",
-    height: "40px",
+    width: "22px",
+    height: "36px",
     border: "2px solid rgba(255, 255, 255, 0.5)",
     borderRadius: "12px",
     position: "relative",
@@ -428,43 +569,11 @@ const styles = {
     animation: "scrollAnimation 2s infinite",
   },
   scrollText: {
-    fontSize: "var(--text-xs)",
-    fontWeight: "500",
+    fontSize: "0.7rem",
+    fontWeight: "600",
     textTransform: "uppercase",
     letterSpacing: "1px",
   },
 };
-
-// Responsive styles
-const mediaQueries = `
-  @media (max-width: 768px) {
-    .hero-content {
-      grid-template-columns: 1fr !important;
-      gap: var(--space-8) !important;
-      text-align: center;
-    }
-    
-    .hero-stats {
-      justify-content: center !important;
-    }
-    
-    .hero-buttons {
-      justify-content: center !important;
-    }
-    
-    .hero-visual {
-      order: -1;
-      max-width: 300px !important;
-      margin: 0 auto;
-    }
-  }
-`;
-
-// Inject responsive styles
-if (typeof document !== 'undefined') {
-  const styleSheet = document.createElement('style');
-  styleSheet.textContent = mediaQueries;
-  document.head.appendChild(styleSheet);
-}
 
 export default HeroSection;

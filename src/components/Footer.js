@@ -34,8 +34,8 @@ const Footer = () => {
 
   const quickStats = [
     { number: "500+", label: "Years of Heritage" },
-    { number: "15+", label: "Sacred Temples" },
-    { number: "2K+", label: "Annual Visitors" },
+    { number: "5+", label: "Sacred Temples" },
+    { number: "100+", label: "Annual Visitors" },
     { number: "50+", label: "Local Families" },
   ];
 
